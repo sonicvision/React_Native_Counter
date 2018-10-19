@@ -8,9 +8,10 @@ class Counter extends Component {
   render() {
     return (
       <View style={styles.counterContainer}>
-        {this.props.counter.counters.map(counter => (
+        {this.props.counter.counters.map((counter, index) => (
           <CounterApp
             key={counter.id}
+            index={index}
             counter={counter}
             increment={this.props.increment}
             decrement={this.props.decrement}
@@ -35,7 +36,7 @@ const mapStateToProps = ({ counter }) => ({
 
 const mapDispatchToProps = dispatch => ({
   addCounter: () => dispatch({ type: "ADD_COUNTER" }),
-  removeCounter: id => dispatch({ type: "REMOVE_COUNTER", id }),
+  removeCounter: index => dispatch({ type: "REMOVE_COUNTER", index }),
   increment: id => dispatch({ type: "INCREMENT", id }),
   decrement: id => dispatch({ type: "DECREMENT", id })
 });

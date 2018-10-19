@@ -36,8 +36,8 @@ const counter = (state = initialState, action) => {
       state = {
         ...state,
         counters: [
-          ...state.counters.slice(0, action.id),
-          ...state.counters.slice(action.id + 1)
+          ...state.counters.slice(0, action.index),
+          ...state.counters.slice(action.index + 1)
         ]
       };
       break;
