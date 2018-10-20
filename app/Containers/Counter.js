@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 class Counter extends Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.counterContainer}>
         {this.props.counter.counters.map((counter, index) => (
@@ -24,6 +25,13 @@ class Counter extends Component {
           title="Add Counter"
         >
           <Text>Add Counter</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigate("Home")}
+          style={styles.buttonContainer}
+          title="Go to Plain"
+        >
+          <Text>Go to Plain</Text>
         </TouchableOpacity>
       </View>
     );
