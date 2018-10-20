@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
+import { connect } from "react-redux";
+import CoffeeOutlet from "../Components/CoffeeOutlet";
 
 class PlainPage extends Component {
   constructor(props) {
@@ -7,13 +9,27 @@ class PlainPage extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    this.props.fetchOutlets();
+  }
   render() {
     return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
+      <FlatList
+        data={this.props.outlets}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => <CoffeeOutlet outlet={item} />}
+      />
     );
   }
 }
 
-export default PlainPage;
+const mapStateToProps = ({ coffee }) => ({ outlets: coffee.outlets });
+
+const mapDispatchToProps = dispatch => ({
+  fetchOutlets: () => dispatch({ type: "OUTLET_FETCH_REQUESTED" })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PlainPage);

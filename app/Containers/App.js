@@ -19,7 +19,7 @@ const StackApp = StackNavigator(
     Counter: { screen: Counter }
   },
   {
-    initialRouteName: "Counter"
+    initialRouteName: "Home"
   }
 );
 

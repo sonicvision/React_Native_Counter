@@ -29,9 +29,9 @@ class Counter extends Component {
         <TouchableOpacity
           onPress={() => navigate("Home")}
           style={styles.buttonContainer}
-          title="Go to Plain"
+          title="Go to Coffee Page"
         >
-          <Text>Go to Plain</Text>
+          <Text>Go to Coffee Page</Text>
         </TouchableOpacity>
       </View>
     );
