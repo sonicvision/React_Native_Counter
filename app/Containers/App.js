@@ -7,27 +7,14 @@
  */
 
 import React, { Component } from "react";
-import Counter from "./Counter";
-import PlainPage from "./PlainPage";
 import { Provider } from "react-redux";
 import store from "../Store";
-import { StackNavigator } from "react-navigation";
-
-const StackApp = StackNavigator(
-  {
-    Home: { screen: PlainPage },
-    Counter: { screen: Counter }
-  },
-  {
-    initialRouteName: "Home"
-  }
-);
-
+import AppNavigator from "../Navigators/AppNavigator";
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <StackApp />
+        <AppNavigator />
       </Provider>
     );
   }

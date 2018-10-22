@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text } from "react-native";
 import CounterApp from "../Components/CounterApp";
 import styles from "./Styles/CounterStyles";
 import { connect } from "react-redux";
+import actions from "../Actions/counter";
 
 class Counter extends Component {
   render() {
@@ -42,12 +43,7 @@ const mapStateToProps = ({ counter }) => ({
   counter
 });
 
-const mapDispatchToProps = dispatch => ({
-  addCounter: () => dispatch({ type: "ADD_COUNTER" }),
-  removeCounter: index => dispatch({ type: "REMOVE_COUNTER", index }),
-  increment: id => dispatch({ type: "INCREMENT", id }),
-  decrement: id => dispatch({ type: "DECREMENT", id })
-});
+const mapDispatchToProps = actions;
 
 export default connect(
   mapStateToProps,

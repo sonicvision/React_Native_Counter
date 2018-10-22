@@ -1,10 +1,12 @@
+import types from "../Types/counter";
+
 const initialState = {
   counters: []
 };
 let index = 0;
 const counter = (state = initialState, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case types.INCREMENT:
       state = {
         ...state,
         counters: state.counters.map(
@@ -15,7 +17,7 @@ const counter = (state = initialState, action) => {
         )
       };
       break;
-    case "DECREMENT":
+    case types.DECREMENT:
       state = {
         ...state,
         counters: state.counters.map(
@@ -26,13 +28,13 @@ const counter = (state = initialState, action) => {
         )
       };
       break;
-    case "ADD_COUNTER":
+    case types.ADD_COUNTER:
       state = {
         ...state,
         counters: [...state.counters, { value: 0, id: index++ }]
       };
       break;
-    case "REMOVE_COUNTER":
+    case types.REMOVE_COUNTER:
       state = {
         ...state,
         counters: [

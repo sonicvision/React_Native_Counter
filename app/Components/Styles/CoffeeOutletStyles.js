@@ -5,10 +5,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "stretch",
-    elevation: 10,
     shadowColor: "grey",
     shadowOpacity: 1,
-    shadowOffset: { width: 5, height: 5 },
+    shadowOffset: { width: 2, height: 2 },
     padding: 10
   },
   image: {
@@ -24,7 +23,6 @@ const styles = StyleSheet.create({
     color: "white",
     padding: 5,
     fontSize: 20,
-    fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "black",

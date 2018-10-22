@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { View, Text, FlatList } from "react-native";
 import { connect } from "react-redux";
 import CoffeeOutlet from "../Components/CoffeeOutlet";
+import actions from "../Actions/coffee";
 
-class PlainPage extends Component {
+class Coffee extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -25,11 +26,11 @@ class PlainPage extends Component {
 
 const mapStateToProps = ({ coffee }) => ({ outlets: coffee.outlets });
 
-const mapDispatchToProps = dispatch => ({
-  fetchOutlets: () => dispatch({ type: "OUTLET_FETCH_REQUESTED" })
-});
+// const mapDispatchToProps = dispatch => ({
+//   fetchOutlets: () => dispatch({ type: "OUTLET_FETCH_REQUESTED" })
+// });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(PlainPage);
+  actions
+)(Coffee);
