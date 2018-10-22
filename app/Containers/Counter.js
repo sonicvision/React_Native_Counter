@@ -4,6 +4,7 @@ import CounterApp from "../Components/CounterApp";
 import styles from "./Styles/CounterStyles";
 import { connect } from "react-redux";
 import actions from "../Actions/counter";
+import { bindActionCreators } from "redux";
 
 class Counter extends Component {
   render() {
@@ -43,7 +44,14 @@ const mapStateToProps = ({ counter }) => ({
   counter
 });
 
-const mapDispatchToProps = actions;
+// const mapDispatchToProps = actions;
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(actions, dispatch)
+});
+
+// const mapDispatchToProps = dispatch => ({
+//   ...bindActionCreators({ ...actions }, dispatch)
+// });
 
 export default connect(
   mapStateToProps,

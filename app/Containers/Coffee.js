@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import CoffeeOutlet from "../Components/CoffeeOutlet";
 import actions from "../Actions/coffee";
@@ -14,7 +14,9 @@ class Coffee extends Component {
     this.props.fetchOutlets();
   }
   render() {
-    return (
+    return this.props.isLoading ? (
+      <ActivityIndicator size="large" color="#774023" />
+    ) : (
       <FlatList
         data={this.props.outlets}
         keyExtractor={item => item.id}
@@ -24,7 +26,10 @@ class Coffee extends Component {
   }
 }
 
-const mapStateToProps = ({ coffee }) => ({ outlets: coffee.outlets });
+const mapStateToProps = ({ coffee }) => ({
+  outlets: coffee.outlets,
+  isLoading: coffee.isLoading
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   fetchOutlets: () => dispatch({ type: "OUTLET_FETCH_REQUESTED" })
